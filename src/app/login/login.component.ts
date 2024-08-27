@@ -58,18 +58,25 @@ register(){
   this.validateEmail();
   if (!this.email || !this.password || !this.emailValid) 
     return;
+  this.isLoading= true;
   this.service.register(this.userName,this.email,this.password).subscribe(response => {
     console.log('User Registered Successfully', response);
+    this.isLoading = false;
     localStorage.setItem('UserName',response.userName);
     localStorage.setItem('Email',response.email);
     this.auth.login()
     this.main.isLoggedIn();
     this.router.navigate(['/home']);
-  }, error => {
-    if(error.status == 400)
+      }, error => {
+    if(error.status == 400){
       this.showUserMessage = error.error;
+    this.isLoading= false;
+    }
     else
+    {this.showUserMessage = error;
+      this.isLoading = false;
     console.error('Login failed', error);
+    }
   });
 }
 setValuesBooleans(){
