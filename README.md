@@ -1,27 +1,40 @@
 # DemoApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
+- [Node.js](https://nodejs.org/) (v14 or later recommended)
+- [Angular CLI](https://angular.io/cli) (You can install it globally using `npm install -g @angular/cli`)
+- ## Getting Started
 
-## Development server
+### Clone the Repository
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+bash
+git clone https://github.com/Khushidawra/Demo-App.git
+cd Demo-App
 
-## Code scaffolding
+## Install Dependencies
+npm install
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Configuration
+You have to configure the application by modifying the src/environments/environment.ts and src/environments/environment.prod i.e. apiURL = the BE URL which you will get on running BE environment i.e. 'https://localhost:7118/api/Registration/' (port number can be changed)
 
-## Build
+## Development Server
+To run the development server and open the application in your browser, use:
+bash
+ng serve
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Code Structure
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
+- **Landing Page**: Contains the `HeaderComponent`.
+- **Public Pages**:
+  - **About Us**: A page that provides information about the application or organization.
+  - **Our Story**: A page detailing the history or background of the application or organization.
+- **Login**: `LoginComponent` for user authentication.
+- **Register**: `RegisterComponent` for new user registration.
+- **Private Pages** (Visible after Login):
+  - **Profile**: `ProfileComponent` where users can view and edit their personal information.
+  - **Home**: `HomeComponent` providing content available only to logged-in users.
+- **Auth Guards**: Used to prevent access to private pages without proper authentication.
+- **Routing**: Proper routing has been implemented to navigate between components and pages.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
