@@ -20,13 +20,16 @@ export class LoginComponent {
   showRegisterPopup: boolean =false;
   showErrors:boolean = false;
   emailValid: boolean = true;
+  isLoading:boolean = false;
 constructor(public service:AppService,public router:Router,public main:AppComponent,public auth:AuthService){}
 login(){
+
   this.showUserMessage= "";
   this.showErrors = true; 
   this.validateEmail();
   if (!this.email || !this.password || !this.emailValid) 
     return;
+  this.isLoading= true;
 this.service.login(this.email,this.password).subscribe(response => {
   localStorage.setItem('UserName',response.userName);
   localStorage.setItem('Email',response.email);
@@ -35,12 +38,18 @@ this.service.login(this.email,this.password).subscribe(response => {
   this.router.navigate(['/home']);
   console.log('Login successful', response);
   this.main.showLoginPopup = false;
-
+  this.isLoading = false;
 }, error => {
-  if(error.status == 400 && error.error == "Incorrect Credentials")
+  if(error.status == 400 && error.error == "Incorrect Credentials"){
     this.showUserMessage = "Incorrect Credentials";
+  this.isLoading = false;
+  }
   else
+  {
+    this.isLoading = false;
+  this.showUserMessage = error
   console.error('Login failed', error);
+  }
 });
 }
 register(){

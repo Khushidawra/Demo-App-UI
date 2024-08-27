@@ -1,5 +1,9 @@
+
 <div *ngIf="main.showLoginPopup" class="modal">
   <div class="modal-content">
+    <div class="loader" *ngIf="isLoading">
+      <div class="spinner"></div>
+    </div>
     <span class="close" (click)="closePopup()" style="cursor:pointer;">×</span>
     <div class="login-container">
       <div class="login-form">
