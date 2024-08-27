@@ -8,8 +8,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Clone the Repository
 
 bash
-git clone https://github.com/Khushidawra/Demo-App.git
-cd Demo-App
+git clone https://github.com/Khushidawra/Demo-App-UI.git
+cd Demo-App-UI
 
 ## Install Dependencies
 npm install
