@@ -1,0 +1,48 @@
+.header {
+    height: 130px; /* Example height for the header */
+    background-color: teal; /* Example background color */
+    font-family: 'Roboto', sans-serif; /* Apply the font */
+  font-size: 36px; /* Set font size */
+  font-weight: 700; /* Bold font weight */
+  color: #333; /* Set text color */
+  text-align: center; /* Center-align text */
+  padding: 20px; /* Add padding around the text */
+  background-color: #f0f0f0; /* Set background color for the header */
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: stretch; /* Ensures that the child elements stretch to the height of the container */
+  }
+  
+  .header-image {
+    height: 100%; /* Adjusts the image height to match the header height */
+    width: auto; /* Maintains the aspect ratio of the image */
+  }
+
+  .home-page{
+    text-align: center;
+    padding: 310px 20px;
+   
+    color: #f0f0f0;
+    font-weight: 500;
+  }
+  .gradient-button {
+    background: linear-gradient(to bottom, teal, white);
+    border: 2px solid teal; 
+    border-radius: 5px;
+    color: teal;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .gradient-button:hover {
+    background: teal; 
+    color: white; 
+    border-color: white; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transform: scale(1.05);
+  }
+ 

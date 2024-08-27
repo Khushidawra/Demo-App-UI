@@ -1,0 +1,86 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-nav {
+  display: flex;
+}
+
+.app-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.app-nav li {
+  margin-right: 15px;
+}
+
+.app-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.app-nav a.active {
+  font-weight: bold;
+}
+
+.logout-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #ff4d4d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #cc0000;
+}
+
+.app-main {
+  flex: 1;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.app-footer {
+  background-color: #343a40;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  margin-top: auto; 
+}
+
+.gradient-button {
+  background: linear-gradient(to bottom, teal, white);
+  border: 2px solid teal; 
+  border-radius: 5px;
+  color: teal;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gradient-button:hover {
+  background: teal; 
+  color: white; 
+  border-color: white; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  transform: scale(1.05);
+}

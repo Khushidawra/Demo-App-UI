@@ -1,0 +1,21 @@
+<div class="page-style">
+<div class="app-container">
+    <header class="app-header">
+      <nav class="app-nav">
+        <ul>
+          <li *ngIf="isLoggedIn()"><a routerLink="/home" routerLinkActive="active" class="button">Home</a></li>
+          <li *ngIf="isLoggedIn()"><a routerLink="/profile" routerLinkActive="active" class="button">Profile</a></li>
+          <li><a routerLink="/our-story" routerLinkActive="active" class="button">Our Story</a></li>
+          <li><a routerLink="/about-us" routerLinkActive="active" class="button">About Us</a></li>
+          <li *ngIf="!isLoggedIn()"><a routerLink="/login" routerLinkActive="active" class="button" (click)="this.showLoginPopup=true">Login</a></li>
+        </ul>
+      </nav>
+      <button *ngIf="isLoggedIn()" class="logout-button" (click)="logout()">Logout</button>
+    </header>
+        <router-outlet></router-outlet>
+    <footer class="app-footer">
+      <p>&copy; 2024 Your Application. All rights reserved.</p>
+    </footer>
+  </div>
+</div>
+  

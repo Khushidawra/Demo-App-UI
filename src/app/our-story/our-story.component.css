@@ -1,0 +1,25 @@
+
+.container {
+    max-width: 600px; /* Reduced width to make it look centered and compact */
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    text-align: center;
+    margin-left: 33.33%;
+    margin-top: 40px;
+}
+
+h2 {
+    color: #ffcc00; /* Golden color for section headings */
+    margin-bottom: 10px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section p {
+    color: #e0e0e0; 
+}
+

@@ -1,0 +1,58 @@
+<div *ngIf="main.showLoginPopup" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="closePopup()" style="cursor:pointer;">×</span>
+    <div class="login-container">
+      <div class="login-form">
+        <!-- Title Bar with Tabs -->
+        <div class="title-bar">
+          <h2 [style.color]="selectedTab === 'login' ? 'white' : 'teal'"
+              [style.background-color]="selectedTab === 'login' ? 'teal' : 'white'"
+              (click)="selectedTab = 'login'; setValuesBooleans()" style="cursor: pointer; display: inline-block; text-align: center;">
+            Login
+          </h2>
+          <h2 [style.color]="selectedTab === 'register' ? 'white' : 'teal'"
+              [style.background-color]="selectedTab === 'register' ? 'teal' : 'white'"
+              (click)="selectedTab = 'register'; setValuesBooleans()" style="cursor: pointer; display: inline-block; text-align: center;">
+            Register
+          </h2>
+        </div>
+        <span *ngIf="showUserMessage" style="color: red; font-size: medium; display: block; text-align: center;">{{showUserMessage}}</span>
+        
+        <!-- Common Form Fields -->
+        <form>
+          <div *ngIf="selectedTab === 'register'">
+            <div class="form-group">
+              <input [(ngModel)]="userName" [ngModelOptions]="{standalone: true}" type="text" placeholder="UserName" 
+                     [ngStyle]="{'border': showErrors && !userName ? '1px solid red' : 'none'}">
+            </div>
+          </div>
+          <div class="form-group">
+            <div *ngIf="showErrors && email && !emailValid" style="color: red; font-size: small; margin-top: 4px;">Invalid email format</div>
+            <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" type="text" placeholder="Email" 
+                   [ngStyle]="{'border': showErrors && (!email || !emailValid) ? '1px solid red' : 'none'}"
+                   (input)="validateEmail()" required>
+                   
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password" placeholder="Password" 
+                   [ngStyle]="{'border': showErrors && !password ? '1px solid red' : 'none'}" required>
+          </div>
+
+          <!-- Login Specific -->
+          <div *ngIf="selectedTab === 'login'">
+            <button type="button" (click)="login()">Login</button>
+            <span *ngIf="showLoginMessage" style="color:red">{{showLoginMessage}}</span><br>
+            <span>Not an Existing User? <a (click)="selectedTab = 'register';setValuesBooleans()" style="cursor: pointer; color: teal; font-size: medium;">Sign Up</a></span>
+          </div>
+
+          <!-- Registration Specific -->
+          <div *ngIf="selectedTab === 'register'">
+            <button type="button" (click)="register()">Register</button>
+            <span *ngIf="showRegisterMessage" style="color:red">{{showRegisterMessage}}</span>
+            <span>Already have an account? <a (click)="selectedTab = 'login';setValuesBooleans()" style="cursor: pointer; color: teal; font-size: medium;">Login</a></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
